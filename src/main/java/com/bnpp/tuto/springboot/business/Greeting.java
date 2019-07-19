@@ -1,4 +1,4 @@
-package hello;
+package com.bnpp.tuto.springboot.business;
 
 public class Greeting {
 
