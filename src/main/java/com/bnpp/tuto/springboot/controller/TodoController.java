@@ -1,22 +1,17 @@
 package com.bnpp.tuto.springboot.controller;
 
-import com.bnpp.tuto.springboot.business.Greeting;
 import com.bnpp.tuto.springboot.business.Todo;
-import com.bnpp.tuto.springboot.persistence.ITodoDAO;
 import com.bnpp.tuto.springboot.service.TodoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 public class TodoController {
 
+    @Autowired
     private TodoService todoService;
-
-    public TodoController(){
-        this.todoService = new TodoService();
-    }
 
     @RequestMapping("/todos")
     public List<Todo> todos() {
@@ -36,5 +31,7 @@ public class TodoController {
     @PutMapping("/todo/{id}")
     public void updateToDo(@RequestBody Todo todo, @PathVariable("id") Integer id) {
         this.todoService.updateTodo(todo);
+
     }
+
 }

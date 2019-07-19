@@ -2,17 +2,16 @@ package com.bnpp.tuto.springboot.service;
 
 import com.bnpp.tuto.springboot.business.Todo;
 import com.bnpp.tuto.springboot.persistence.ITodoDAO;
-import com.bnpp.tuto.springboot.persistence.TodoDAOInMemory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TodoService {
 
+    @Autowired
     private ITodoDAO dao;
-
-    public TodoService(){
-        this.dao = new TodoDAOInMemory();
-    }
 
     public List<Todo> getTodos(){
         return this.dao.getTodos();

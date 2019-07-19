@@ -1,12 +1,14 @@
 package com.bnpp.tuto.springboot.persistence;
 
 import com.bnpp.tuto.springboot.business.Todo;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
+@Service
 public class TodoDAOInMemory implements ITodoDAO{
 
     private final Map<Integer, Todo> todoInMemory;
