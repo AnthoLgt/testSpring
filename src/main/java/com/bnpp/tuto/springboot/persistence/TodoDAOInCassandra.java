@@ -4,19 +4,17 @@ import com.bnpp.tuto.springboot.business.Todo;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 //@Service
-public class TodoDAOInMemory implements ITodoDAO{
+public class TodoDAOInCassandra implements ITodoDAO{
 
     private final Map<Integer, Todo> todoInMemory;
 
-    public TodoDAOInMemory(){
+    public TodoDAOInCassandra(){
         this.todoInMemory = new HashMap<>();
-        this.todoInMemory.putIfAbsent(1,new Todo(1, "Test"));
-        this.todoInMemory.putIfAbsent(2,new Todo(2, "Test2"));
     }
 
     @Override
@@ -38,5 +36,9 @@ public class TodoDAOInMemory implements ITodoDAO{
     @Override
     public void updateTodo(Todo todo) {
         this.todoInMemory.replace(todo.getId(), todo);
+    }
+
+    private void createTable(){
+
     }
 }

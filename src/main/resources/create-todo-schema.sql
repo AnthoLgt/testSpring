@@ -1,0 +1,3 @@
+CREATE TABLE todo(id INTEGER IDENTITY PRIMARY KEY, content VARCHAR(255));
+
+INSERT INTO todo(content) VALUES ('Test1');

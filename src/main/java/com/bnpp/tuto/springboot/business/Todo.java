@@ -1,8 +1,16 @@
 package com.bnpp.tuto.springboot.business;
 
+import org.springframework.data.annotation.Id;
+
 public class Todo {
+
+    @Id
     private Integer id;
     private String content;
+
+    public Todo(){
+
+    }
 
     public Todo(Integer id, String content){
         this.id = id;
